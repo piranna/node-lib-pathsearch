@@ -2,14 +2,15 @@ var async = require('async');
 
 var fs    = require('fs');
 
-function search(paths, callback) {
+function search(match, paths, callback) {
   var out = [];
   
   function iter(path, next) {
     function readdir(err, names){
       if (names) for (var i in names) {
         var name = names[i];
-        out.push(name);
+        if (name.length < match) return;
+        if (name.substr(0, match.length) === match) out.push(name);
       }
       next(err);
     }
