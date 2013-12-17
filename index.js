@@ -6,13 +6,21 @@ function search(paths, callback) {
   var out = [];
   
   function iter(path, next) {
-    fs.readdir(path, function (err, names){
+    function readdir(err, names){
       if (names) for (var i in names) {
         var name = names[i];
         out.push(name);
       }
       next(err);
-    });
+    }
+    
+    function stat(err, stat) {
+      if (stat.isDirectory()) 
+        fs.readdir(path, readdir);
+      else next(err);
+    }
+
+    fs.stat(path, stat);
   }
 
   function done(err) {
