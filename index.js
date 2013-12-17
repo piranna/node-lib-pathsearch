@@ -15,6 +15,7 @@ function search(paths, callback) {
     }
     
     function stat(err, stat) {
+      if (err) return next();
       if (stat.isDirectory()) 
         fs.readdir(path, readdir);
       else next(err);
