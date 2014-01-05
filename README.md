@@ -12,7 +12,10 @@ npm i --save lib-pathsearch
 
 ```javascript
 var ps = require('lib-pathsearch');
-ps(['/bin','/usr/bin','/usr/local/bin'], function (err, res) {
+
+// search for commands starting with 'a'
+// within '/bin', '/usr/bin', and '/usr/local/bin'
+ps('a', ['/bin','/usr/bin','/usr/local/bin'], function (err, res) {
   console.log(res);
 });
 
