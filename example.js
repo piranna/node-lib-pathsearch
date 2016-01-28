@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var ps = require('./index.js');
 
 ps('pw', ['/bin','/usr/bin', '/dev/null', '/lakjsdf'], function (err, res) {

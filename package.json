@@ -9,6 +9,6 @@
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "async": "~0.2.9"
+    "async": "~1.5.2"
   }
 }
